@@ -24,7 +24,7 @@ export const io = new Server(server, {
   }
 });
 
-app.use(cors({ origin: CLIENT_URL, credentials: true }));
+app.use(cors({ origin: [CLIENT_URL, 'https://chat-app-mern-stack-seven.vercel.app/'], credentials: true }));
 app.use(express.json({ limit: "1mb" }));
 app.use(cookieParser());
 
