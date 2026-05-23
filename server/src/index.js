@@ -1,8 +1,10 @@
+import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import http from "http";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import dotenv from "dotenv";
-import express from "express";
+
 import { Server } from "socket.io";
 import { connectDB } from "./lib/db.js";
 import { registerSocketHandlers } from "./lib/socket.js";
@@ -10,12 +12,10 @@ import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
-dotenv.config();
-
 const app = express();
 const server = http.createServer(app);
 const PORT = process.env.PORT || 5000;
-const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5174";
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
 
 export const io = new Server(server, {
   cors: {
